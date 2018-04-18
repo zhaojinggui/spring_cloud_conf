@@ -1,0 +1,24 @@
+receive_path: /rtmap/local/receive_data
+produce_getbuildpoiinfo: http://123.56.132.58:8080/rtmap/produce/wifi/selBuildPoiInfo
+isinside_rssi: 40
+isinside_enviroment: 3
+isinside_distance_paramenter: 1.382
+oss_log_path: lbswifiprobe_req_resp_log_streaming
+oss_max_size: 1024001
+blocking_queue_size: 10000
+blocking_queue_fetch_size: 5000
+kafka_key: wifiprobelog
+
+feign:
+  hystrix:
+    enabled: true
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 5000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
